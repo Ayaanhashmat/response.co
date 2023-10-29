@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with GPT-3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #chat-container {
+            width: 400px;
+            margin: 0 auto;
+            background: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        #chat-display {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            min-height: 300px;
+            padding: 10px;
+            overflow-y: scroll;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #user-input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-display">
+            <p>Welcome to the GPT-3 Chat!</p>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your message..." onkeydown="sendMessage(event)">
+    </div>
+
+    <script>
+        function sendMessage(event) {
+            if (event.key === "Enter") {
+                const userInput = document.getElementById("user-input").value;
+                const chatDisplay = document.getElementById("chat-display");
+
+                // Display user's message
+                chatDisplay.innerHTML += `<p style="text-align: right;">You: ${userInput}</p>`;
+                document.getElementById("user-input").value = "";
+
+                // Simulate receiving a response (not real functionality)
+                // For demonstration purposes, we'll just generate a simple response.
+                const reply = "This is a response from GPT-3.";
+                chatDisplay.innerHTML += `<p>GPT-3: ${reply}</p>`;
+
+                // Scroll to the bottom to show the latest messages
+                chatDisplay.scrollTop = chatDisplay.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
